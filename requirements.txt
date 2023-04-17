@@ -1,2 +1,4 @@
 Pillow==9.5.0
-wordcloud==1.8.2
+wordcloud==1.8.1
+Janome==0.4.2
+matplotlib==3.7.1
