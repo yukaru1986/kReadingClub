@@ -28,7 +28,7 @@ def generate_wordcloud(analyze_result: str):
     dic_result = dict(analyze_result)
 
     wordcloud = WordCloud(background_color='white',
-                          font_path='C:/Windows/Fonts/HGRSGU.TTC',
+                          font_path='Fonts/NotoSansJP-VariableFont_wght.ttf',
                           width=800,
                           height=800).fit_words(dic_result)
     return wordcloud
