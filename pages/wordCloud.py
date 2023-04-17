@@ -3,20 +3,19 @@ from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 from janome.tokenizer import Tokenizer
 import collections
-import japanize_matplotlib
 
 st.text('page one')
-text = st.text_area('paste your text here')
+user_text = st.text_area('paste your text here')
 
 
-def analyze_text(text: str):
+def analyze_text(user_text: str):
     t = Tokenizer()
 
     # 頻出単語を取得
     freq_of_words = collections.Counter(
-        token.base_form for token in t.tokenize(text)
+        token.base_form for token in t.tokenize(user_text)
         # if token.part_of_speech.startswith('名詞'))
-        if token.part_of_speech.split(',')[0] in ['形容詞','形容動詞'])
+        if token.part_of_speech.split(',')[0] in ['形容詞', '形容動詞'])
     return freq_of_words
 
 
@@ -31,7 +30,7 @@ def generate_wordcloud(analyze_result: str):
 
 
 if __name__ == "__main__":
-    freq_of_words = analyze_text(text)
+    freq_of_words = analyze_text(user_text)
     wordcloud = generate_wordcloud(freq_of_words)
     st.title('あなたの使う形容詞')
     print(freq_of_words)
